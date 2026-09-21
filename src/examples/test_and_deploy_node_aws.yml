@@ -15,7 +15,7 @@ usage:
         - serverless-framework/setup
         - run:
             name: deploy
-            command: serverless deploy -v
+            command: serverless deploy --verbose
   workflows:
     deploy:
       jobs:
