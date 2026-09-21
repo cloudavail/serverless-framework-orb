@@ -15,10 +15,10 @@ curl -o- -L "${install_url}" | VERSION="$ORB_PARAM_SERVERLESS_VERSION" SLS_GEO_L
 echo 'export PATH=$HOME/.serverless/bin:$PATH' >> "$BASH_ENV"
 # shellcheck disable=SC1090
 source "$BASH_ENV"
-# Check for Serverless key
+# SERVERLESS_ACCESS_KEY is only required when using the Serverless Dashboard.
 if [ -z "$SERVERLESS_ACCESS_KEY" ]; then
-  echo "Error: The environment variable SERVERLESS_ACCESS_KEY is empty.
-    Please create your serverless dashboard access key and add it to this project as a project environment vairable
-    or via contexts.
+  echo "Notice: The environment variable SERVERLESS_ACCESS_KEY is not set.
+    This is only required if your service uses the Serverless Dashboard. If it does, create a dashboard
+    access key and add it to this project as a project environment variable or via contexts.
     https://serverless.com/framework/docs/dashboard/cicd/running-in-your-own-cicd#configure-environment-variables"
 fi
